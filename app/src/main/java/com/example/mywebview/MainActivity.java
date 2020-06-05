@@ -18,6 +18,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         WebView webview = (WebView) findViewById(R.id.webview);
         final TextView textview = findViewById(R.id.textView);
 
+        // test sorting list of map
+        testSortedMaps();
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         String email="message1@gmail.com";
@@ -85,6 +93,33 @@ public class MainActivity extends AppCompatActivity {
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         CustomTabsIntent customTabsIntent = builder.build();
         customTabsIntent.launchUrl(this, Uri.parse(url));
+        */
+    }
+    public void testSortedMaps() {
+                    //https://stackoverflow.com/questions/5155952/sorting-a-list-of-mapstring-string
+        Map<String, Object> map1 = new HashMap<String, Object>();
+        map1.put("name", "Josh");
+
+        Map<String, Object> map2 = new HashMap<String, Object>();
+        map2.put("name", "Anna");
+
+        Map<String, Object> map3 = new HashMap<String, Object>();
+        map3.put("name", "Bernie");
+
+        List<Map<String, Object>> mapList = new ArrayList<Map<String, Object>>();
+        mapList.add(map1);
+        mapList.add(map2);
+        mapList.add(map3);
+
+        Collections.sort(mapList, new Comparator<Map<String, Object>>() {
+            public int compare(final Map<String, Object> o1, final Map<String, Object> o2) {
+                return o1.get("name").toString().compareTo(o2.get("name").toString());
+            }
+        });
+        /*
+        Assert.assertEquals("Anna", mapList.get(0).get("name"));
+        Assert.assertEquals("Bernie", mapList.get(1).get("name"));
+        Assert.assertEquals("Josh", mapList.get(2).get("name"));
         */
     }
 }
