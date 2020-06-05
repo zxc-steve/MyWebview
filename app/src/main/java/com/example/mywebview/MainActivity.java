@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         List<Map<String, Object>> mapList = new ArrayList<>();
         mapList.add(map1);
         mapList.add(map2);
-        //mapList.add(map3);
+        mapList.add(map3);
 
         //Comparator<Map<String,String>> sortByName = Comparator.comparing(x -> x.get("Name"));
         //mapList.sort(sortByName)
