@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView textview = findViewById(R.id.textView);
 
         // test sorting list of map
-        testSortedMaps_1();
+        testSortedMaps();   // test for github branch
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         String email="message1@gmail.com";
