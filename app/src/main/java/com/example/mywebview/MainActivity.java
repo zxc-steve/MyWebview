@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView textview = findViewById(R.id.textView);
 
         // test sorting list of map
-        testSortedMaps_lambda();
+        testSortedMaps_lambda_1();
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         String email="message1@gmail.com";
@@ -83,17 +83,18 @@ public class MainActivity extends AppCompatActivity {
         //Log.d("zyc Log", user.getEmail());
 
         //https://stackoverflow.com/questions/51124050/android-webview-not-logging-in
+        /*
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setDomStorageEnabled(true);
-        //webview.loadUrl("https://zxc-0429-js.web.app");
-
+        webview.loadUrl("https://zxc-0429-js.web.app/index_0.html");
+        */
         //https://developer.chrome.com/multidevice/android/customtabs
-        /*
-        String url = "https://zxc-0429-js.web.app";
+
+        String url = "https://zxc-0429-js.web.app/index_0.html";
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         CustomTabsIntent customTabsIntent = builder.build();
         customTabsIntent.launchUrl(this, Uri.parse(url));
-        */
+
     }
     public void testSortedMaps() {
         //https://stackoverflow.com/questions/5155952/sorting-a-list-of-mapstring-string
@@ -162,9 +163,38 @@ public class MainActivity extends AppCompatActivity {
         mapList.add(map1);
         mapList.add(map2);
         mapList.add(map3);
+        // lambda seems not working in this case, 2020/06/05. Give up the idea !!!
+        //Comparator<Map<String,Object>> sortByName = Comparator.comparing(x -> x.get("Name").toString());
+        //mapList.sort(sortByName);
+
+        /*
+        Collections.sort(mapList, new Comparator<Map<String, Object>>() {
+            public int compare(final Map<String, Object> o1, final Map<String, Object> o2) {
+                return o1.get("name").toString().compareTo(o2.get("name").toString());
+            }
+        });
+        */
+    }
+    public void testSortedMaps_lambda_1() {
+        //https://stackoverflow.com/questions/5155952/sorting-a-list-of-mapstring-string
+        Map<String, String> map1 = new HashMap<>();
+        map1.put("name", "Josh");
+        map1.put("UID","testUID");
+
+        Map<String, String> map2 = new HashMap<>();
+        map2.put("name", "Anna");
+
+        Map<String, String> map3 = new HashMap<>();
+        map3.put("name", "Bernie");
+
+        List<Map<String, String>> mapList = new ArrayList<>();
+        mapList.add(map1);
+        mapList.add(map2);
+        mapList.add(map3);
 
         //Comparator<Map<String,String>> sortByName = Comparator.comparing(x -> x.get("Name"));
-        //mapList.sort(sortByName)
+        //mapList.sort(sortByName);
+
         /*
         Collections.sort(mapList, new Comparator<Map<String, Object>>() {
             public int compare(final Map<String, Object> o1, final Map<String, Object> o2) {
