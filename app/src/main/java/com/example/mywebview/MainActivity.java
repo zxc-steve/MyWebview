@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         // test sorting list of map
         testSortedMaps();   // test for github branch
         testSortedMaps_1(); // new commit in branch
-        //testSortedMaps_lambda();// merge into master again
+        testSortedMaps_lambda();// merge into master again, local version
+        add_for_master();
         // Initialize Firebase Auth
         testSortedMaps();   // modified at remote
         mAuth = FirebaseAuth.getInstance();
