@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "804640298100",
+    "firebase_url": "https://web-codelab-250ae.firebaseio.com",
+    "project_id": "web-codelab-250ae",
+    "storage_bucket": "web-codelab-250ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804640298100:android:8294d3a86108eae93ead21",
+        "android_client_info": {
+          "package_name": "com.example.mywebview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804640298100-o4scstf585acb849r6mnho61p0krrbuc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCooYrPIFRtgERyz1mBFKmxt_mVVCnnlQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804640298100-o4scstf585acb849r6mnho61p0krrbuc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
