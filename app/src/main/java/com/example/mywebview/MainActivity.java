@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView textview = findViewById(R.id.textView);
 
         // test sorting list of map
-        testSortedMaps();
+        testSortedMaps_lambda();
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         String email="message1@gmail.com";
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         */
     }
     public void testSortedMaps() {
-                    //https://stackoverflow.com/questions/5155952/sorting-a-list-of-mapstring-string
+        //https://stackoverflow.com/questions/5155952/sorting-a-list-of-mapstring-string
         Map<String, Object> map1 = new HashMap<String, Object>();
         map1.put("name", "Josh");
 
@@ -120,6 +120,57 @@ public class MainActivity extends AppCompatActivity {
         Assert.assertEquals("Anna", mapList.get(0).get("name"));
         Assert.assertEquals("Bernie", mapList.get(1).get("name"));
         Assert.assertEquals("Josh", mapList.get(2).get("name"));
+        */
+    }
+    public void testSortedMaps_1() {
+        //https://stackoverflow.com/questions/5155952/sorting-a-list-of-mapstring-string
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("name", "Josh");
+        map1.put("UID","testUID");
+
+        Map<String, Object> map2 = new HashMap<>();
+        map2.put("name", "Anna");
+
+        Map<String, Object> map3 = new HashMap<>();
+        map3.put("name", "Bernie");
+
+        List<Map<String, Object>> mapList = new ArrayList<>();
+        mapList.add(map1);
+        mapList.add(map2);
+        mapList.add(map3);
+
+        Collections.sort(mapList, new Comparator<Map<String, Object>>() {
+            public int compare(final Map<String, Object> o1, final Map<String, Object> o2) {
+                return o1.get("name").toString().compareTo(o2.get("name").toString());
+            }
+        });
+    }
+
+    public void testSortedMaps_lambda() {
+        //https://stackoverflow.com/questions/5155952/sorting-a-list-of-mapstring-string
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("name", "Josh");
+        map1.put("UID","testUID");
+
+        Map<String, Object> map2 = new HashMap<>();
+        map2.put("name", "Anna");
+
+        Map<String, Object> map3 = new HashMap<>();
+        map3.put("name", "Bernie");
+
+        List<Map<String, Object>> mapList = new ArrayList<>();
+        mapList.add(map1);
+        mapList.add(map2);
+        mapList.add(map3);
+
+        //Comparator<Map<String,String>> sortByName = Comparator.comparing(x -> x.get("Name"));
+        //mapList.sort(sortByName)
+        /*
+        Collections.sort(mapList, new Comparator<Map<String, Object>>() {
+            public int compare(final Map<String, Object> o1, final Map<String, Object> o2) {
+                return o1.get("name").toString().compareTo(o2.get("name").toString());
+            }
+        });
         */
     }
 }
