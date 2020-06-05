@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         testSortedMaps_1(); // new commit in branch
         //testSortedMaps_lambda();// merge into master again
         // Initialize Firebase Auth
+        testSortedMaps();   // modified at remote
         mAuth = FirebaseAuth.getInstance();
         String email="message1@gmail.com";
         String password="123456";
